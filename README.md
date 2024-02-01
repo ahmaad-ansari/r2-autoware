@@ -4,7 +4,6 @@
 1. [Launching Autoware with Docker](#launching-autoware-with-docker)
 2. [Ackermann Control Command ROS2 Topic](#ackermann-control-command-ros2-topic)
 
-
 ## Launching Autoware with Docker
 
 To launch Autoware using Docker, follow these steps:
@@ -32,6 +31,7 @@ To launch Autoware using Docker, follow these steps:
     ```
 
    This command launches Autoware with the specified parameters for planning and simulation.
+   
 ---
 
 ## Ackermann Control Command ROS2 Topic
