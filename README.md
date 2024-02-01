@@ -3,6 +3,7 @@
 ## Table of Contents
 1. [Launching Autoware with Docker](#launching-autoware-with-docker)
 2. [Ackermann Control Command ROS2 Topic](#ackermann-control-command-ros2-topic)
+3. [TF Topic - `tf2_msgs/msg/TFMessage`](#tf-topic---tf2_msgsmsgtfmessage)
 
 ## Launching Autoware with Docker
 
@@ -78,3 +79,46 @@ longitudinal:
   - `jerk`: The jerk (rate of change of acceleration) of the vehicle.
 
 ---
+
+## TF Topic - `tf2_msgs/msg/TFMessage`
+
+### Sample Output
+Here is a snippet of the sample output from the `/tf` topic:
+
+```yaml
+transforms:
+- header:
+    stamp:
+      sec: 1706766702
+      nanosec: 131340168
+    frame_id: map
+  child_frame_id: base_link
+  transform:
+    translation:
+      x: 3722.6949928615045
+      y: 73749.92152812779
+      z: 19.483417879617267
+    rotation:
+      x: 0.0
+      y: -0.0
+      z: -0.8444251767627481
+      w: -0.5356735207654021
+---
+```
+
+### Explanation
+
+- **`transforms`**: Contains information about the transformations.
+  - **`header`**: Includes timestamp, frame_id, and child_frame_id.
+    - `stamp`: Timestamp with seconds (`sec`) and nanoseconds (`nanosec`).
+    - `frame_id`: The reference frame.
+    - `child_frame_id`: The child frame.
+  - **`transform`**: Describes the translation and rotation of the child frame relative to the reference frame.
+    - **`translation`**: The translation along the x, y, and z axes.
+    - **`rotation`**: The rotation represented by quaternion (x, y, z, w).
+
+This data represents a transformation from the "map" frame to the "base_link" frame at a specific timestamp. It is essential for understanding the spatial relationships between different frames in the robotic system.
+
+---
+
+
