@@ -1,6 +1,6 @@
-# Autoware and ROSMASTER R2 Setup Guide
+# Autoware Setup Guide
 
-This guide provides step-by-step instructions on setting up an environment to run Autoware along with Yahboom's ROSMASTER R2 using Docker. Follow these steps carefully to ensure a smooth installation.
+This guide provides step-by-step instructions on setting up an environment to run Autoware using Docker. Follow these steps carefully to ensure a smooth installation.
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
