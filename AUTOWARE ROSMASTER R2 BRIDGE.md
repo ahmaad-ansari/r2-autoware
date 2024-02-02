@@ -11,7 +11,7 @@ This guide provides step-by-step instructions on setting up an environment to ru
 
 ## Setting up Docker Network
 
-Execute the following command to set up the Docker network named `autoware_rosmaster_r2_bridge`:
+Execute the following command to set up the Docker network named `autoware_rosmaster_r2_bridge` on the host:
 ```bash
 docker network create autoware_rosmaster_r2_bridge
 ```
@@ -30,14 +30,15 @@ docker network create autoware_rosmaster_r2_bridge
 
 ## Setting ROS Domain ID
 
-After connecting the containers, set the ROS domain ID to the same value in both containers. Execute the following commands:
-
+After connecting the containers, set the ROS_DOMAIN_ID to the same value in both containers. Execute the following commands:
 ```bash
 export ROS_DOMAIN_ID=##
 source ~/.bashrc
 ```
 
-Check if both containers have the correct ROS domain ID:
+Check if both containers have the correct ROS_DOMAIN_ID:
 ```bash
 printenv | grep ROS
 ```
+
+The ROS_DOMAIN_ID
