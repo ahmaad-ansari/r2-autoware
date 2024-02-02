@@ -1,6 +1,24 @@
-S# Autoware and ROSMASTER R2 Setup Guide
+# Autoware and ROSMASTER R2 Setup Guide
 
 This guide provides step-by-step instructions on setting up an environment to run Autoware along with Yahboom's ROSMASTER R2 using Docker. Follow these steps carefully to ensure a smooth installation.
+
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Docker Installation for Development](#docker-installation-for-development)
+  - [1. Clone Autoware Repository](#1-clone-autoware-repository)
+  - [2. Install Dependencies Using Ansible (Optional)](#2-install-dependencies-using-ansible-optional)
+- [Setting Up Workspace](#setting-up-workspace)
+  - [1. Create Autoware Map Directory](#1-create-autoware-map-directory)
+  - [2. Pull Docker Image](#2-pull-docker-image)
+  - [3. Launch Docker Container](#3-launch-docker-container)
+    - [For non-NVIDIA GPU or arm64 architecture computers:](#for-non-nvidia-gpu-or-arm64-architecture-computers)
+  - [5. Move to Workspace in the Container](#5-move-to-workspace-in-the-container)
+  - [6. Create src Directory and Clone Repositories](#6-create-src-directory-and-clone-repositories)
+  - [7. Update Dependent ROS Packages](#7-update-dependent-ros-packages)
+  - [8. Build the Workspace](#8-build-the-workspace)
+
+Now, your environment is set up to run Autoware with a ROSMASTER R2. Ensure you follow the specific instructions for your system architecture and GPU setup.
 
 ## Prerequisites
 
