@@ -5,6 +5,12 @@
 2. [Ackermann Control Command ROS2 Topic](#ackermann-control-command-ros2-topic)
 3. [TF Topic - `tf2_msgs/msg/TFMessage`](#tf-topic---tf2_msgsmsgtfmessage)
 
+## Launching Autoware with ROSMASTER R2
+
+```bash
+ros2 launch autoware_launch e2e_simulator.launch.xml vehicle_model:=sample_vehicle sensor_model:=awsim_sensor_kit map_path:=<your mapfile location>
+```
+
 ## Launching Autoware with Docker
 
 To launch Autoware using Docker, follow these steps:
