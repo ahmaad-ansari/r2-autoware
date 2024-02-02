@@ -127,16 +127,16 @@ If you do not have the required folders and files in `~/autoware_data`, you can 
 ##### 1. yabloc_pose_initializer
 
 ```bash
-$ mkdir -p ~/autoware_data/yabloc_pose_initializer/
-$ wget -P ~/autoware_data/yabloc_pose_initializer/ \
+mkdir -p ~/autoware_data/yabloc_pose_initializer/
+wget -P ~/autoware_data/yabloc_pose_initializer/ \
        https://s3.ap-northeast-2.wasabisys.com/pinto-model-zoo/136_road-segmentation-adas-0001/resources.tar.gz
 ```
 
 ##### 2. image_projection_based_fusion
 
 ```bash
-$ mkdir -p ~/autoware_data/image_projection_based_fusion/
-$ wget -P ~/autoware_data/image_projection_based_fusion/ \
+mkdir -p ~/autoware_data/image_projection_based_fusion/
+wget -P ~/autoware_data/image_projection_based_fusion/ \
        https://awf.ml.dev.web.auto/perception/models/pointpainting/v4/pts_voxel_encoder_pointpainting.onnx \
        https://awf.ml.dev.web.auto/perception/models/pointpainting/v4/pts_backbone_neck_head_pointpainting.onnx
 ```
@@ -144,8 +144,8 @@ $ wget -P ~/autoware_data/image_projection_based_fusion/ \
 ##### 3. lidar_apollo_instance_segmentation
 
 ```bash
-$ mkdir -p ~/autoware_data/lidar_apollo_instance_segmentation/
-$ wget -P ~/autoware_data/lidar_apollo_instance_segmentation/ \
+mkdir -p ~/autoware_data/lidar_apollo_instance_segmentation/
+wget -P ~/autoware_data/lidar_apollo_instance_segmentation/ \
        https://awf.ml.dev.web.auto/perception/models/lidar_apollo_instance_segmentation/vlp-16.onnx \
        https://awf.ml.dev.web.auto/perception/models/lidar_apollo_instance_segmentation/hdl-64.onnx \
        https://awf.ml.dev.web.auto/perception/models/lidar_apollo_instance_segmentation/vls-128.onnx
@@ -154,8 +154,8 @@ $ wget -P ~/autoware_data/lidar_apollo_instance_segmentation/ \
 ##### 4. lidar_centerpoint
 
 ```bash
-$ mkdir -p ~/autoware_data/lidar_centerpoint/
-$ wget -P ~/autoware_data/lidar_centerpoint/ \
+mkdir -p ~/autoware_data/lidar_centerpoint/
+wget -P ~/autoware_data/lidar_centerpoint/ \
        https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_voxel_encoder_centerpoint.onnx \
        https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_backbone_neck_head_centerpoint.onnx \
        https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_voxel_encoder_centerpoint_tiny.onnx \
@@ -165,8 +165,8 @@ $ wget -P ~/autoware_data/lidar_centerpoint/ \
 ##### 5. tensorrt_yolo
 
 ```bash
-$ mkdir -p ~/autoware_data/tensorrt_yolo/
-$ wget -P ~/autoware_data/tensorrt_yolo/ \
+mkdir -p ~/autoware_data/tensorrt_yolo/
+wget -P ~/autoware_data/tensorrt_yolo/ \
        https://awf.ml.dev.web.auto/perception/models/yolov3.onnx \
        https://awf.ml.dev.web.auto/perception/models/yolov4.onnx \
        https://awf.ml.dev.web.auto/perception/models/yolov4-tiny.onnx \
@@ -180,8 +180,8 @@ $ wget -P ~/autoware_data/tensorrt_yolo/ \
 ##### 6. tensorrt_yolox
 
 ```bash
-$ mkdir -p ~/autoware_data/tensorrt_yolox/
-$ wget -P ~/autoware_data/tensorrt_yolox/ \
+mkdir -p ~/autoware_data/tensorrt_yolox/
+wget -P ~/autoware_data/tensorrt_yolox/ \
        https://awf.ml.dev.web.auto/perception/models/yolox-tiny.onnx \
        https://awf.ml.dev.web.auto/perception/models/yolox-sPlus-opt.onnx \
        https://awf.ml.dev.web.auto/perception/models/yolox-sPlus-opt.EntropyV2-calibration.table \
@@ -193,8 +193,8 @@ $ wget -P ~/autoware_data/tensorrt_yolox/ \
 ##### 7. traffic_light_classifier
 
 ```bash
-$ mkdir -p ~/autoware_data/traffic_light_classifier/
-$ wget -P ~/autoware_data/traffic_light_classifier/ \
+mkdir -p ~/autoware_data/traffic_light_classifier/
+wget -P ~/autoware_data/traffic_light_classifier/ \
        https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier/v2/traffic_light_classifier_mobilenetv2_batch_1.onnx \
        https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier/v2/traffic_light_classifier_mobilenetv2_batch_4.onnx \
        https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier/v2/traffic_light_classifier_mobilenetv2_batch_6.onnx \
@@ -211,8 +211,8 @@ $ wget -P ~/autoware_data/traffic_light_classifier/ \
 ##### 8. traffic_light_fine_detector
 
 ```bash
-$ mkdir -p ~/autoware_data/traffic_light_fine_detector/
-$ wget -P ~/autoware_data/traffic_light_fine_detector/ \
+mkdir -p ~/autoware_data/traffic_light_fine_detector/
+wget -P ~/autoware_data/traffic_light_fine_detector/ \
        https://awf.ml.dev.web.auto/perception/models/tlr_yolox_s/v3/tlr_car_ped_yolox_s_batch_1.onnx \
        https://awf.ml.dev.web.auto/perception/models/tlr_yolox_s/v3/tlr_car_ped_yolox_s_batch_4.onnx \
        https://awf.ml.dev.web.auto/perception/models/tlr_yolox_s/v3/tlr_car_ped_yolox_s_batch_6.onnx \
@@ -222,8 +222,8 @@ $ wget -P ~/autoware_data/traffic_light_fine_detector/ \
 ##### 9. traffic_light_ssd_fine_detector
 
 ```bash
-$ mkdir -p ~/autoware_data/traffic_light_ssd_fine_detector/
-$ wget -P ~/autoware_data
+mkdir -p ~/autoware_data/traffic_light_ssd_fine_detector/
+wget -P ~/autoware_data
 
 /traffic_light_ssd_fine_detector/ \
        https://awf.ml.dev.web.auto/perception/models/mb2-ssd-lite-tlr.onnx \
@@ -233,17 +233,17 @@ $ wget -P ~/autoware_data
 ##### 10. tvm_utility
 
 ```bash
-$ mkdir -p ~/autoware_data/tvm_utility/models/yolo_v2_tiny
-$ wget -P ~/autoware_data/tvm_utility/ \
+mkdir -p ~/autoware_data/tvm_utility/models/yolo_v2_tiny
+wget -P ~/autoware_data/tvm_utility/ \
        https://autoware-modelzoo.s3.us-east-2.amazonaws.com/models/3.0.0-20221221/yolo_v2_tiny-x86_64-llvm-3.0.0-20221221.tar.gz
 ```
 
 ##### 11. lidar_centerpoint_tvm
 
 ```bash
-$ mkdir -p ~/autoware_data/lidar_centerpoint_tvm/models/centerpoint_encoder
-$ mkdir -p ~/autoware_data/lidar_centerpoint_tvm/models/centerpoint_backbone
-$ wget -P ~/autoware_data/lidar_centerpoint_tvm/ \
+mkdir -p ~/autoware_data/lidar_centerpoint_tvm/models/centerpoint_encoder
+mkdir -p ~/autoware_data/lidar_centerpoint_tvm/models/centerpoint_backbone
+wget -P ~/autoware_data/lidar_centerpoint_tvm/ \
        https://autoware-modelzoo.s3.us-east-2.amazonaws.com/models/3.0.0-20221221/centerpoint_encoder-x86_64-llvm-3.0.0-20221221.tar.gz \
        https://autoware-modelzoo.s3.us-east-2.amazonaws.com/models/3.0.0-20221221/centerpoint_backbone-x86_64-llvm-3.0.0-20221221.tar.gz
 ```
@@ -251,15 +251,15 @@ $ wget -P ~/autoware_data/lidar_centerpoint_tvm/ \
 ##### 12. lidar_apollo_segmentation_tvm
 
 ```bash
-$ mkdir -p ~/autoware_data/lidar_apollo_segmentation_tvm/models/baidu_cnn
-$ wget -P ~/autoware_data/lidar_apollo_segmentation_tvm/ \
+mkdir -p ~/autoware_data/lidar_apollo_segmentation_tvm/models/baidu_cnn
+wget -P ~/autoware_data/lidar_apollo_segmentation_tvm/ \
       https://autoware-modelzoo.s3.us-east-2.amazonaws.com/models/3.0.0-20221221/baidu_cnn-x86_64-llvm-3.0.0-20221221.tar.gz
 ```
 
 ##### Extracting Files
 
 ```bash
-$ tar -xf ~/autoware_data/yabloc_pose_initializer/resources.tar.gz \
+tar -xf ~/autoware_data/yabloc_pose_initializer/resources.tar.gz \
        -C ~/autoware_data/yabloc_pose_initializer/
 ```
 
