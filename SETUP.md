@@ -96,3 +96,186 @@ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 If any build issues occur, refer to the Troubleshooting section in the Autoware documentation.
 
 Now, your environment is set up to run Autoware with a ROSMASTER R2. Ensure you follow the specific instructions for your system architecture and GPU setup.
+
+## Autoware Planning Simulation
+
+### Download and Unpack Sample Map
+
+Download and unpack a sample map using the following commands:
+
+```bash
+gdown -O ~/autoware_map/ 'https://docs.google.com/uc?export=download&id=1499_nsbUbIeturZaDj7jhUownh5fvXHd'
+unzip -d ~/autoware_map ~/autoware_map/sample-map-planning.zip
+```
+
+**Note:** Sample map is copyrighted by TIER IV, Inc.
+
+Check if you have the `~/autoware_data` folder and required files:
+
+```bash
+cd ~/autoware_data
+ls -C -w 30
+```
+
+#### Manual Downloading of Artifacts
+
+If you do not have the required folders and files in `~/autoware_data`, you can manually download them by following the steps below:
+
+##### 1. yabloc_pose_initializer
+
+```bash
+$ mkdir -p ~/autoware_data/yabloc_pose_initializer/
+$ wget -P ~/autoware_data/yabloc_pose_initializer/ \
+       https://s3.ap-northeast-2.wasabisys.com/pinto-model-zoo/136_road-segmentation-adas-0001/resources.tar.gz
+```
+
+##### 2. image_projection_based_fusion
+
+```bash
+$ mkdir -p ~/autoware_data/image_projection_based_fusion/
+$ wget -P ~/autoware_data/image_projection_based_fusion/ \
+       https://awf.ml.dev.web.auto/perception/models/pointpainting/v4/pts_voxel_encoder_pointpainting.onnx \
+       https://awf.ml.dev.web.auto/perception/models/pointpainting/v4/pts_backbone_neck_head_pointpainting.onnx
+```
+
+##### 3. lidar_apollo_instance_segmentation
+
+```bash
+$ mkdir -p ~/autoware_data/lidar_apollo_instance_segmentation/
+$ wget -P ~/autoware_data/lidar_apollo_instance_segmentation/ \
+       https://awf.ml.dev.web.auto/perception/models/lidar_apollo_instance_segmentation/vlp-16.onnx \
+       https://awf.ml.dev.web.auto/perception/models/lidar_apollo_instance_segmentation/hdl-64.onnx \
+       https://awf.ml.dev.web.auto/perception/models/lidar_apollo_instance_segmentation/vls-128.onnx
+```
+
+##### 4. lidar_centerpoint
+
+```bash
+$ mkdir -p ~/autoware_data/lidar_centerpoint/
+$ wget -P ~/autoware_data/lidar_centerpoint/ \
+       https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_voxel_encoder_centerpoint.onnx \
+       https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_backbone_neck_head_centerpoint.onnx \
+       https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_voxel_encoder_centerpoint_tiny.onnx \
+       https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_backbone_neck_head_centerpoint_tiny.onnx
+```
+
+##### 5. tensorrt_yolo
+
+```bash
+$ mkdir -p ~/autoware_data/tensorrt_yolo/
+$ wget -P ~/autoware_data/tensorrt_yolo/ \
+       https://awf.ml.dev.web.auto/perception/models/yolov3.onnx \
+       https://awf.ml.dev.web.auto/perception/models/yolov4.onnx \
+       https://awf.ml.dev.web.auto/perception/models/yolov4-tiny.onnx \
+       https://awf.ml.dev.web.auto/perception/models/yolov5s.onnx \
+       https://awf.ml.dev.web.auto/perception/models/yolov5m.onnx \
+       https://awf.ml.dev.web.auto/perception/models/yolov5l.onnx \
+       https://awf.ml.dev.web.auto/perception/models/yolov5x.onnx \
+       https://awf.ml.dev.web.auto/perception/models/coco.names
+```
+
+##### 6. tensorrt_yolox
+
+```bash
+$ mkdir -p ~/autoware_data/tensorrt_yolox/
+$ wget -P ~/autoware_data/tensorrt_yolox/ \
+       https://awf.ml.dev.web.auto/perception/models/yolox-tiny.onnx \
+       https://awf.ml.dev.web.auto/perception/models/yolox-sPlus-opt.onnx \
+       https://awf.ml.dev.web.auto/perception/models/yolox-sPlus-opt.EntropyV2-calibration.table \
+       https://awf.ml.dev.web.auto/perception/models/object_detection_yolox_s/v1/yolox-sPlus-T4-960x960-pseudo-finetune.onnx \
+       https://awf.ml.dev.web.auto/perception/models/object_detection_yolox_s/v1/yolox-sPlus-T4-960x960-pseudo-finetune.EntropyV2-calibration.table \
+       https://awf.ml.dev.web.auto/perception/models/label.txt
+```
+
+##### 7. traffic_light_classifier
+
+```bash
+$ mkdir -p ~/autoware_data/traffic_light_classifier/
+$ wget -P ~/autoware_data/traffic_light_classifier/ \
+       https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier/v2/traffic_light_classifier_mobilenetv2_batch_1.onnx \
+       https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier/v2/traffic_light_classifier_mobilenetv2_batch_4.onnx \
+       https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier/v2/traffic_light_classifier_mobilenetv2_batch_6.onnx \
+       https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier/v2/traffic_light_classifier_efficientNet_b1_batch_1.onnx \
+       https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier/v2/traffic_light_classifier_efficientNet_b1_batch_4.onnx \
+       https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier/v2/traffic_light_classifier_efficientNet_b1_batch_6.onnx \
+       https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier/v2/lamp_labels.txt \
+       https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier/v3/ped_traffic_light_classifier_mobilenetv2_batch_1.onnx \
+       https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier/v3/ped_traffic_light_classifier_mobilenetv2_batch_4.onnx \
+       https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier/v3/ped_traffic_light_classifier_mobilenetv2_batch_6.onnx \
+       https://awf.ml.dev.web.auto/perception/models/traffic_light_classifier/v3/lamp_labels_ped.txt
+```
+
+##### 8. traffic_light_fine_detector
+
+```bash
+$ mkdir -p ~/autoware_data/traffic_light_fine_detector/
+$ wget -P ~/autoware_data/traffic_light_fine_detector/ \
+       https://awf.ml.dev.web.auto/perception/models/tlr_yolox_s/v3/tlr_car_ped_yolox_s_batch_1.onnx \
+       https://awf.ml.dev.web.auto/perception/models/tlr_yolox_s/v3/tlr_car_ped_yolox_s_batch_4.onnx \
+       https://awf.ml.dev.web.auto/perception/models/tlr_yolox_s/v3/tlr_car_ped_yolox_s_batch_6.onnx \
+       https://awf.ml.dev.web.auto/perception/models/tlr_yolox_s/v3/tlr_labels.txt
+```
+
+##### 9. traffic_light_ssd_fine_detector
+
+```bash
+$ mkdir -p ~/autoware_data/traffic_light_ssd_fine_detector/
+$ wget -P ~/autoware_data
+
+/traffic_light_ssd_fine_detector/ \
+       https://awf.ml.dev.web.auto/perception/models/mb2-ssd-lite-tlr.onnx \
+       https://awf.ml.dev.web.auto/perception/models/voc_labels_tl.txt
+```
+
+##### 10. tvm_utility
+
+```bash
+$ mkdir -p ~/autoware_data/tvm_utility/models/yolo_v2_tiny
+$ wget -P ~/autoware_data/tvm_utility/ \
+       https://autoware-modelzoo.s3.us-east-2.amazonaws.com/models/3.0.0-20221221/yolo_v2_tiny-x86_64-llvm-3.0.0-20221221.tar.gz
+```
+
+##### 11. lidar_centerpoint_tvm
+
+```bash
+$ mkdir -p ~/autoware_data/lidar_centerpoint_tvm/models/centerpoint_encoder
+$ mkdir -p ~/autoware_data/lidar_centerpoint_tvm/models/centerpoint_backbone
+$ wget -P ~/autoware_data/lidar_centerpoint_tvm/ \
+       https://autoware-modelzoo.s3.us-east-2.amazonaws.com/models/3.0.0-20221221/centerpoint_encoder-x86_64-llvm-3.0.0-20221221.tar.gz \
+       https://autoware-modelzoo.s3.us-east-2.amazonaws.com/models/3.0.0-20221221/centerpoint_backbone-x86_64-llvm-3.0.0-20221221.tar.gz
+```
+
+##### 12. lidar_apollo_segmentation_tvm
+
+```bash
+$ mkdir -p ~/autoware_data/lidar_apollo_segmentation_tvm/models/baidu_cnn
+$ wget -P ~/autoware_data/lidar_apollo_segmentation_tvm/ \
+      https://autoware-modelzoo.s3.us-east-2.amazonaws.com/models/3.0.0-20221221/baidu_cnn-x86_64-llvm-3.0.0-20221221.tar.gz
+```
+
+##### Extracting Files
+
+```bash
+$ tar -xf ~/autoware_data/yabloc_pose_initializer/resources.tar.gz \
+       -C ~/autoware_data/yabloc_pose_initializer/
+```
+
+Now, you have manually downloaded and extracted the required artifacts for Autoware. Ensure these files are present in the specified folders for the proper functioning of the Autoware system.
+
+
+### Basic Simulations
+
+#### Lane Driving Scenario
+1. **Launch Docker**
+```bash
+rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map --volume $HOME/autoware_data -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
+```
+
+2. **Launch Autoware**
+
+```bash
+source ~/autoware/install/setup.bash
+ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autoware_map/sample-map-planning vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
+```
+
+**Warning:** Do not use ~ instead of $HOME in the `map_path` argument. If ~ is used, the map will fail to load.
