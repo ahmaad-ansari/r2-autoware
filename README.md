@@ -9,7 +9,7 @@
 
 1. Autoware Container
     ```bash
-    rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map --volume $HOME/autoware_data --network autoware_r2_network --name rocker-container ghcr.io/autowarefoundation/autoware-universe:latest-cuda
+    rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map --volume $HOME/autoware_data --network autoware_rosmaster_r2_bridge --name autoware-container ghcr.io/autowarefoundation/autoware-universe:latest-cuda
 
     ```
 
@@ -18,7 +18,7 @@
     xhost +
     
     docker run -it \
-    --network autoware_r2_network \
+    --network autoware_rosmaster_r2_bridge \
     --env="DISPLAY" \
     --env="QT_X11_NO_MITSHM=1" \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
@@ -35,7 +35,7 @@
     --device=/dev/input \
     -p 9090:9090 \
     -p 8888:8888 \
-    --name ros-foxy-container \
+    --name rosmaster-r2-container \
     yahboomtechnology/ros-foxy:4.0.0 /bin/bash
 
     ```
