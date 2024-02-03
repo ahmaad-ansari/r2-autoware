@@ -21,7 +21,8 @@
 ## Launching Autoware with ROSMASTER R2
 
 ```bash
-ros2 launch autoware_launch e2e_simulator.launch.xml vehicle_model:=sample_vehicle sensor_model:=awsim_sensor_kit map_path:=<your mapfile location>
+ros2 launch autoware_launch e2e_simulator.launch.xml vehicle_model:=sample_vehicle sensor_model:=awsim_sensor_kit map
+_path:=$HOME/autoware_map/sample-map-planning/
 ```
 
 ## Launching Autoware with Docker
