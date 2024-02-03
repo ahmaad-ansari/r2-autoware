@@ -44,6 +44,8 @@ docker run -it --network autoware_rosmaster_r2_bridge --env="DISPLAY" --env="QT_
     --name rosmaster-r2-container yahboomtechnology/ros-foxy:4.0.0 /bin/bash
 ```
 
+### ?. Change .bashrc to Reflect R2 Model
+
 ### 3. Change to Home Directory
 
 ```bash
