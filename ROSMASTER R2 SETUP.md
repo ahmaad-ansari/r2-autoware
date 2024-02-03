@@ -67,7 +67,7 @@ Clones the Autoware repository from GitHub and navigates into the cloned directo
 
 ```bash
 mkdir src
-vcs import src < autoware.repos
+vcs import src < autoware_msgs.repos
 ```
 
 Creates a `src` directory and imports Autoware repositories using the `vcs` tool.
