@@ -139,6 +139,175 @@ transforms:
 
 This data represents a transformation from the "map" frame to the "base_link" frame at a specific timestamp. It is essential for understanding the spatial relationships between different frames in the robotic system.
 
+## Lidar Topic = `/sensing/lidar/top/pointcloud_raw`
+```bash
+---
+header:
+  stamp:
+    sec: 360
+    nanosec: 489991942
+  frame_id: sensor_kit_base_link
+height: 1
+width: 27095
+fields:
+- name: x
+  offset: 0
+  datatype: 7
+  count: 1
+- name: y
+  offset: 4
+  datatype: 7
+  count: 1
+- name: z
+  offset: 8
+  datatype: 7
+  count: 1
+- name: intensity
+  offset: 16
+  datatype: 7
+  count: 1
+- name: ring
+  offset: 20
+  datatype: 4
+  count: 1
+is_bigendian: false
+point_step: 24
+row_step: 650280
+data:
+- 0
+- 238
+- 251
+- 192
+- 0
+- 0
+- 128
+- 54
+- 231
+- 79
+- 5
+- 192
+- 0
+- 198
+- 204
+- 189
+- 0
+- 0
+- 200
+- 66
+- 1
+- 0
+- 0
+- 0
+- 64
+- 198
+- 19
+- 193
+- 0
+- 0
+- 64
+- 183
+- 13
+- 172
+- 6
+- 192
+- 0
+- 100
+- 236
+- 189
+- 0
+- 0
+- 200
+- 66
+- 2
+- 0
+- 0
+- 0
+- 160
+- 235
+- 49
+- 193
+- 0
+- 0
+- 128
+- 54
+- 239
+- 112
+- 8
+- 192
+- 0
+- 95
+- 11
+- 190
+- 0
+- 0
+- 200
+- 66
+- 3
+- 0
+- 0
+- 0
+- 192
+- 140
+- 93
+- 193
+- 0
+- 0
+- 0
+- 56
+- 145
+- 94
+- 10
+- 192
+- 0
+- 4
+- 40
+- 190
+- 0
+- 0
+- 200
+- 66
+- 4
+- 0
+- 0
+- 0
+- 160
+- 203
+- 146
+- 193
+- 0
+- 0
+- 80
+- 184
+- 57
+- 27
+- 14
+- 192
+- 0
+- 177
+- 89
+- 190
+- 0
+- 0
+- 200
+- 66
+- 5
+- 0
+- 0
+- 0
+- 160
+- 35
+- 218
+- 193
+- 0
+- 0
+- 48
+- 57
+- '...'
+is_dense: true
+---
+
+```
+
 ---
 
 
