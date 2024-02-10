@@ -140,7 +140,7 @@ transforms:
 This data represents a transformation from the "map" frame to the "base_link" frame at a specific timestamp. It is essential for understanding the spatial relationships between different frames in the robotic system.
 
 ## Lidar Topic = `/sensing/lidar/top/pointcloud_raw`
-```bash
+```yaml
 ---
 header:
   stamp:
