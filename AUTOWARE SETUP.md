@@ -273,6 +273,9 @@ Now, you have manually downloaded and extracted the required artifacts for Autow
 ```bash
 rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map --volume $HOME/autoware_data -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
 ```
+```bash
+rocker --nvidia --x11 --user --volume $HOME/autoware.r2 --volume $HOME/autoware_map --volume $HOME/autoware_data -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
+```
 
 2. **Launch Autoware**
 
