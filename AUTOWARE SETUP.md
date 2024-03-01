@@ -33,8 +33,8 @@ Now, your environment is set up to run Autoware with a ROSMASTER R2. Ensure you 
 ### 1. Clone Autoware Repository
 
 ```bash
-git clone https://github.com/autowarefoundation/autoware.git
-cd autoware
+git clone https://github.com/ahmaad-ansari/autoware.r2.git
+cd autoware.r2
 ```
 
 ### 2. Install Dependencies Using Ansible (Optional)
@@ -66,13 +66,13 @@ docker pull ghcr.io/autowarefoundation/autoware-universe:latest-cuda
 #### For non-NVIDIA GPU or arm64 architecture computers:
 
 ```bash
-rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
+rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware.r2 --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
 ```
 
 ### 5. Move to Workspace in the Container
 
 ```bash
-cd autoware
+cd autoware.r2
 ```
 
 ### 6. Create src Directory and Clone Repositories
