@@ -273,15 +273,11 @@ Now, you have manually downloaded and extracted the required artifacts for Autow
 ```bash
 rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map --volume $HOME/autoware_data -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
 ```
-```bash
-rocker --nvidia --x11 --user --volume $HOME/autoware.r2 --volume $HOME/autoware_map --volume $HOME/autoware_data -- ghcr.io/autowarefoundation/autoware-universe:latest-cuda
-```
 
 2. **Launch Autoware**
-
 ```bash
 source ~/autoware/install/setup.bash
-ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autoware_map/sample-map-planning vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
+ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autoware_map/sample-map-planning vehicle_model:=r2_vehicle sensor_model:=sample_sensor_kit
 ```
 
 **Warning:** Do not use ~ instead of $HOME in the `map_path` argument. If ~ is used, the map will fail to load.
