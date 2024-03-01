@@ -21,7 +21,7 @@ docker network create autoware_r2_bridge
 1. **Autoware Container**
   A. ARM64
     ```bash
-    rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware.r2 --volume $HOME/autoware_map --volume $HOME/autoware_data --network autoware_rosmaster_r2_bridge --name autoware-container ghcr.io/autowarefoundation/autoware-universe:latest-cuda
+    rocker -e LIBGL_ALWAYS_SOFTWARE=1 --x11 --user --volume $HOME/autoware --volume $HOME/autoware_map --volume $HOME/autoware_data --network autoware_r2_bridge --name autoware-container ghcr.io/autowarefoundation/autoware-universe:latest-cuda
     ```
 
 3. **R2 Container**
